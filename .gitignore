@@ -1,5 +1,7 @@
 .idea
+.vscode
 DashboardBackend
 test
 */tmp
 tmp/
+cfg.json

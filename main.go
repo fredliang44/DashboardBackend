@@ -3,6 +3,7 @@ package main
 import (
 	"DashboardBackend/handlers/auth"
 	"DashboardBackend/handlers/user"
+	"DashboardBackend/utils"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -28,7 +29,7 @@ func main() {
 		// //在此添加控制台路由 console.GET("/healthcheck", checkAliveHandler)
 	}
 
-	router.Run("localhost:8000")
+	router.Run(utils.AppConfig.Host + ":" + utils.AppConfig.Port)
 }
 
 func checkAliveHandler(c *gin.Context) {
