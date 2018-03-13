@@ -43,7 +43,22 @@ func main() {
 
 }
 
-// Handler is the handler for user endpoint
-func Handler(c *gin.Context) {
+// RegHandler is the handler for user reg endpoint
+func RegHandler(c *gin.Context) {
 
 }
+
+// DetailHandler is a handler
+func DetailHandler(c *gin.Context) {
+
+}
+
+// // RegHandler is the handler for user reg endpoint
+// func RegHandler(c *gin.Context) {
+
+// }
+
+// // RegHandler is the handler for user reg endpoint
+// func RegHandler(c *gin.Context) {
+
+// }
