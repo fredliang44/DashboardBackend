@@ -1,6 +1,10 @@
 package user
 
-import "time"
+import (
+	"time"
+
+	"github.com/gin-gonic/gin"
+)
 
 // User is the basic structure of user
 type User struct {
@@ -40,6 +44,6 @@ func main() {
 }
 
 // Handler is the handler for user endpoint
-func Handler() {
+func Handler(c *gin.Context) {
 
 }
