@@ -7,27 +7,31 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func checkPassword(userId string, password string, c *gin.Context) (string, bool) {
+	if (userId == "admin" && password == "admin") || (userId == "test" && password == "test") {
+		return userId, true
+	}
+
+	return userId, false
+}
+
+func checkUserID(userId string, c *gin.Context) bool {
+	if userId == "admin" {
+		return true
+	}
+
+	return false
+}
+
 func GenFunc() *jwt.GinJWTMiddleware {
 	// the jwt middleware
 	authMiddleware := &jwt.GinJWTMiddleware{
-		Realm:      "test zone",
-		Key:        []byte("secret key"),
-		Timeout:    time.Hour,
-		MaxRefresh: time.Hour,
-		Authenticator: func(userId string, password string, c *gin.Context) (string, bool) {
-			if (userId == "admin" && password == "admin") || (userId == "test" && password == "test") {
-				return userId, true
-			}
-
-			return userId, false
-		},
-		Authorizator: func(userId string, c *gin.Context) bool {
-			if userId == "admin" {
-				return true
-			}
-
-			return false
-		},
+		Realm:         "test zone",
+		Key:           []byte("secret key"),
+		Timeout:       time.Hour,
+		MaxRefresh:    time.Hour,
+		Authenticator: checkPassword,
+		Authorizator:  checkUserID,
 		Unauthorized: func(c *gin.Context, code int, message string) {
 			c.JSON(code, gin.H{
 				"code":    code,
