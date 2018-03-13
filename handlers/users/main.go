@@ -11,7 +11,7 @@ type User struct {
 	Detail   Detail
 }
 
-// Detail is addtional info user may add later
+// Detail is additional info user may add later
 type Detail struct {
 	Gentle                   uint      `name:"性别" option:"男,女" placeholder:"请输入你的性别"`
 	Birthday                 time.Time `name:"生日" time:"yes"`
