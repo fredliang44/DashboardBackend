@@ -15,7 +15,7 @@ func main() {
 	console := router.Group("/console")
 	console.Use(auth.GenFunc().MiddlewareFunc())
 	{
-		//在此添加控制台路由 console.GET("/healthcheck", checkAliveHandler)
+		//在此添加控制台路由, 例如console.GET("/healthcheck", checkAliveHandler)
 		console.GET("/refresh_token", auth.GenFunc().RefreshHandler)
 	}
 
