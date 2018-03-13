@@ -8,6 +8,7 @@ import (
 )
 
 func checkPassword(userID string, password string, c *gin.Context) (string, bool) {
+	//TODO 对接数据库验证密码
 	if (userID == "admin" && password == "admin") || (userID == "test" && password == "test") {
 		return userID, true
 	}
@@ -16,6 +17,7 @@ func checkPassword(userID string, password string, c *gin.Context) (string, bool
 }
 
 func checkUserID(userID string, c *gin.Context) bool {
+	//TODO 对接数据库验证管理员账号
 	if userID == "admin" {
 		return true
 	}
