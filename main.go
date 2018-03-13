@@ -2,6 +2,7 @@ package main
 
 import (
 	"DashboardBackend/handlers/auth"
+	"DashboardBackend/handlers/user"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -10,11 +11,11 @@ import (
 func main() {
 	router := gin.Default()
 
-	router.POST("/api/v1/user/login", auth.AuthMiddleware.LoginHandler)
-	router.POST("/api/v1/user/reg", user.RegHandler)
-	router.GET("/api/v1/healthcheck", checkAliveHandler)
+	router.POST("/v1/user/login", auth.AuthMiddleware.LoginHandler)
+	router.POST("/v1/user/reg", user.RegHandler)
+	router.GET("/v1/healthcheck", checkAliveHandler)
 
-	console := router.Group("/api/v1")
+	console := router.Group("/v1")
 	console.Use(auth.AuthMiddleware.MiddlewareFunc())
 	{
 		userGroup := console.Group("/user")
