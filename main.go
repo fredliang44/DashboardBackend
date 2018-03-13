@@ -2,6 +2,7 @@ package main
 
 import (
 	"DashboardBackend/handlers/auth"
+	"DashboardBackend/handlers/user"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
