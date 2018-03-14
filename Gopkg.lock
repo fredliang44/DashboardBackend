@@ -18,16 +18,16 @@
   version = "v0.5"
 
 [[projects]]
-  name = "github.com/go-mailer/send"
-  packages = ["."]
-  revision = "cb5c1d39dfdd8729f0e74d1009445df5e2e6f3a8"
-  version = "v1.0.1"
-
-[[projects]]
   name = "github.com/julienschmidt/httprouter"
   packages = ["."]
   revision = "8c199fb6259ffc1af525cc3ad52ee60ba8359669"
   version = "v1.1"
+
+[[projects]]
+  branch = "v3"
+  name = "gopkg.in/alexcesaro/quotedprintable.v3"
+  packages = ["."]
+  revision = "2caba252f4dc53eaf6b553000885530023f54623"
 
 [[projects]]
   name = "gopkg.in/dgrijalva/jwt-go.v3"
@@ -35,9 +35,15 @@
   revision = "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e"
   version = "v3.2.0"
 
+[[projects]]
+  name = "gopkg.in/gomail.v2"
+  packages = ["."]
+  revision = "41f3572897373c5538c50a2402db15db079fa4fd"
+  version = "2.0.0"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "df4060e0f644befa14b98768a8bbf63c91bd172f1c40109e9c11148fba2fb17e"
+  inputs-digest = "12e00a2981ef97a96aad546364fcb76b3370f36c828013163b396caf88a821d6"
   solver-name = "gps-cdcl"
   solver-version = 1
