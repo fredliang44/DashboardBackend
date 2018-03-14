@@ -7,7 +7,6 @@ import (
 	"gopkg.in/gomail.v2"
 )
 
-// Test is func to test smtp mails is reachable or not
 func Test(addr string) {
 	send("Test Sender", "Test  Subject", "info@fredliang.cn", "info@fredliang.cn", "Testmail")
 }
