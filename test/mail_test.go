@@ -8,7 +8,7 @@ import (
 
 func TestMails(t *testing.T) {
 	fmt.Println("======================sending======================")
-	mail.Test("me@fredliang.cn")
+	mail.Test("info@fredliang.cn")
 	fmt.Println("========================done=======================")
 }
 
