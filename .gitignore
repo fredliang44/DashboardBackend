@@ -5,3 +5,4 @@ test
 */tmp
 tmp/
 cfg.json
+*.test

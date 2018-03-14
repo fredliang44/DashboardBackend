@@ -6,6 +6,12 @@
         "port": "PORT",
         "database": "DATABASE"
     },
+    "mail":{
+        "server":"SMTP_SERVER",
+        "username":"HOST@HOST.COM",
+        "password":"PASSWORD",
+        "port":465
+    },
     "host": "localhost",
     "port": "8000"
 }

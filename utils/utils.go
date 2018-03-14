@@ -2,7 +2,6 @@ package utils
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -14,14 +13,20 @@ type Config struct {
 		Host     string `json:"host"`
 		Username string `json:"username"`
 		Password string `json:"password"`
-		Port     string `json:"port"`
+		Port     int    `json:"port"`
 		Database string `json:"database"`
 	} `json:"database"`
+	Mail struct {
+		Server   string `json:"Server"`
+		Username string `json:"username"`
+		Password string `json:"password"`
+		Port     int    `json:"port"`
+	}
 	Host string `json:"host"`
 	Port string `json:"port"`
 }
 
-// LoadConfiguration is a load cfg from file
+// LoadConfiguration is a function to load cfg from file
 func LoadConfiguration() Config {
 	path, err := os.Getwd()
 	if err != nil {
@@ -33,12 +38,12 @@ func LoadConfiguration() Config {
 	configFile, err := os.Open(path)
 	defer configFile.Close()
 	if err != nil {
-		fmt.Println(err.Error())
+		log.Fatalf("[loadAppConfig]: %s\n", err)
 	}
 	jsonParser := json.NewDecoder(configFile)
 	jsonParser.Decode(&config)
 	return config
 }
 
-// AppConfig is a value loaded from config file
+// AppConfig is a struct loaded from config file
 var AppConfig = LoadConfiguration()
