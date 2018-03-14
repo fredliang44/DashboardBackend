@@ -10,6 +10,7 @@ import (
 	"github.com/go-mailer/send"
 )
 
+// Test is func to test smtp mails is reachable or not
 func Test(addr string) {
 	from := mail.Address{Name: "Test Mail", Address: utils.AppConfig.Mail.Username}
 	sender, err := send.NewSmtpSender(utils.AppConfig.Mail.Server+":"+string(utils.AppConfig.Mail.Port), from, utils.AppConfig.Mail.Password)
