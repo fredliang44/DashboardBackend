@@ -17,11 +17,11 @@ type Config struct {
 		Database string `json:"database"`
 	} `json:"database"`
 	Mail struct {
-		Server   string `json:"Server"`
+		Server   string `json:"server"`
 		Username string `json:"username"`
 		Password string `json:"password"`
 		Port     int    `json:"port"`
-	}
+	} `json:"mail"`
 	Host string `json:"host"`
 	Port string `json:"port"`
 }
