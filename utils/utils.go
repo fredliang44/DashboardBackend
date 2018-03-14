@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"strings"
+	"fmt"
 )
 
 // Config is a struct for backend config
@@ -13,15 +14,15 @@ type Config struct {
 		Host     string `json:"host"`
 		Username string `json:"username"`
 		Password string `json:"password"`
-		Port     int    `json:"port"`
+		Port     string   `json:"port"`
 		Database string `json:"database"`
 	} `json:"database"`
 	Mail struct {
-		Server   string `json:"Server"`
+		Server   string `json:"server"`
 		Username string `json:"username"`
 		Password string `json:"password"`
-		Port     int    `json:"port"`
-	}
+		Port     string    `json:"port"`
+	} `json:"mail"`
 	Host string `json:"host"`
 	Port string `json:"port"`
 }
@@ -42,6 +43,7 @@ func LoadConfiguration() Config {
 	}
 	jsonParser := json.NewDecoder(configFile)
 	jsonParser.Decode(&config)
+	fmt.Println(config)
 	return config
 }
 

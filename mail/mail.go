@@ -12,8 +12,10 @@ import (
 
 // Test is func to test smtp mails is reachable or not
 func Test(addr string) {
-	from := mail.Address{Name: "Test Mail", Address: utils.AppConfig.Mail.Username}
-	sender, err := send.NewSmtpSender(utils.AppConfig.Mail.Server+":"+string(utils.AppConfig.Mail.Port), from, utils.AppConfig.Mail.Password)
+	url := utils.AppConfig.Mail.Server+":"+ utils.AppConfig.Mail.Port
+
+	from := mail.Address{Name: "Mail Tester", Address: utils.AppConfig.Mail.Username}
+	sender, err := send.NewSmtpSender(url, from, utils.AppConfig.Mail.Password)
 	if err != nil {
 		panic(err)
 	}
@@ -22,7 +24,7 @@ func Test(addr string) {
 	msg := &send.Message{
 		Subject: "异步发送邮件测试",
 		Content: bytes.NewBufferString("<h1>你好，异步测试邮件内容</h1>"),
-		To:      []string{addr},
+		To:      addr,
 	}
 	err = sender.AsyncSend(msg, false, func(err error) {
 		defer wg.Done()
